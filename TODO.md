@@ -1,0 +1,3 @@
+  - [ ] Links to sections in 2-underpinnings-i-good-vibrations.md
+  - [ ] CSS for "See more detail" in 2.1-linear-and-nonlinear.md
+  - [ ] Equation numbers

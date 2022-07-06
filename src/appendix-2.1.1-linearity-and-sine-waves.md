@@ -1,4 +1,4 @@
-# Appendix to 2.1 : Linearity and sine waves {#linearity-and-sine-waves}
+## 2.1.1 : Linearity and sine waves {#linearity-and-sine-waves}
 
 The technical definition of a linear system is as follows. Suppose we
 know that an input $f_1(t)$ produces an output $g_1(t)$, while an
