@@ -1,3 +1,5 @@
-  - [ ] Links to sections in 2-underpinnings-i-good-vibrations.md
-  - [ ] CSS for "See more detail" in 2.1-linear-and-nonlinear.md
+  - [ ] Links to sections
+  - [ ] CSS for "See more detail" 
+  - [ ] in 2.3, there is "Chapter ?" in the original (is it possible to figure out which chapter was intended ?)
   - [ ] Equation numbers
+      - [ ] write regex to move \tag out of the equations
