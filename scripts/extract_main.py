@@ -2,7 +2,6 @@
 import bs4
 import sys
 
-print(sys.argv)
 
 input_file  = sys.argv[1]
 output_file = sys.argv[2]
@@ -13,7 +12,7 @@ with open(input_file, "r") as f:
 
 # %%
 
-soup = bs4.BeautifulSoup(content)
+soup = bs4.BeautifulSoup(content, features = "html.parser")
 
 main_article = soup.find("article")
 

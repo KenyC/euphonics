@@ -1,8 +1,17 @@
-MD_FILES=$(sort $(wildcard src/*.md))
+MD_FILES=$(shell find src/ -name "*.md")
 
-all: src/title.txt $(MD_FILES) pandoc.yaml
-	pandoc -d pandoc.yaml -o build/euphonics.epub src/title.txt $(MD_FILES) 
+all: build/euphonics.epub
+
+build/euphonics.epub: src/title.txt $(MD_FILES) pandoc.yaml
+	pandoc -d pandoc.yaml -o $@ $$(python scripts/sort_md.py src/title.txt $(MD_FILES))
+	@echo FINISHED !
+	@echo SIZE OUTPUT
+	@du -sh $@
 
 
-build/%.epub: src/%.md src/title.txt pandoc.yaml
-	pandoc -d pandoc.yaml -o $@ src/title.txt $<
+
+todo: build/todo.epub
+
+UNPROCESSED=$(wildcard src/unprocessed/*.md)
+build/todo.epub: src/title.txt $(UNPROCESSED) pandoc.yaml
+	pandoc -d pandoc.yaml -o $@ src/title.txt $(UNPROCESSED)
