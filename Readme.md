@@ -10,3 +10,5 @@ Requires Pandoc. I use Pandoc 2.16.1
 ```bash
 make
 ```
+
+Result available as `build/euphonics.epub`
