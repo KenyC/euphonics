@@ -22,18 +22,34 @@ pattern = r"(\$\$[^\$]*)(--)(?=[^\$]*\$\$)"
 subst   = r'\1-'
 content = re.sub(pattern, subst, content)
 
-
-pattern = r"(\$[^\$]*)(\\\[\s*)(?=[^\$]*\$)"
+# brackets
+pattern = r"(\\left)\\\[\s*"
+# pattern = r"(\$[^\$]*)(\\\[\s*)(?=[^\$]*\$\$\s*\n)"
 subst   = r'\1\\lbrack{}'
 content = re.sub(pattern, subst, content)
 
-
-
-pattern = r"(\$[^\$]*)(\\\]\s*)(?=[^\$]*\$)"
+pattern = r"(\\right)\\\]\s*"
+# pattern = r"(\$[^\$]*)(\\\]\s*)(?=[^\$]*\$\$\s*\n)"
 subst   = r'\1\\rbrack{}'
 content = re.sub(pattern, subst, content)
 
 
+
+
+# primes in maths mode
+pattern = r"(\^?\\?')(?=[^\$]*\$\$\n)"
+subst   = r'^{\\prime}'
+content = re.sub(pattern, subst, content)
+
+pattern = r"(\\\w+|\s\w)(\^?\\?')"
+subst   = r'\1^{\\prime}'
+content = re.sub(pattern, subst, content)
+
+# See more details
+
+pattern = r"(\[\[SEE MORE DETAIL\]\{[^\}]*\}\]\()https:\/\/euphonics\.org\/(\d+-)+([^\)]*[^\)\/])\/?\)"
+subst   = r'\1#\3)'
+content = re.sub(pattern, subst, content)
 
 with open(input_file, "w") as f:
 	f.write(content)

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 HTML_EXTRACT=scrap/$(basename $(dirname $1)).html
-OUT=src/unprocessed/$(basename $(dirname $1)).md
+OUT=src/todo/$(basename $(dirname $1)).md
 
 echo $1 ">>>" $OUT
 

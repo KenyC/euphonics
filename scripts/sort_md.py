@@ -37,6 +37,7 @@ def label(f):
 				subsec = ""
 
 			return (i, chapter_no, subsec)
+	raise Exception("Couldn't label {}".format(f))
 
 # print(label("src/chap2/appendix/appendix-2.2.1-fourier-series.md"))
 # print(label("src/chap3/3.4-shells-bells-saws-and-steel-pans.md"))

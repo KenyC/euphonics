@@ -1,4 +1,4 @@
-MD_FILES=$(shell find src/ -name "*.md")
+MD_FILES=$(filter-out src/todo/%, $(shell find src/ -name "*.md"))
 
 all: build/euphonics.epub
 
@@ -12,6 +12,6 @@ build/euphonics.epub: src/title.txt $(MD_FILES) pandoc.yaml
 
 todo: build/todo.epub
 
-UNPROCESSED=$(wildcard src/unprocessed/*.md)
-build/todo.epub: src/title.txt $(UNPROCESSED) pandoc.yaml
-	pandoc -d pandoc.yaml -o $@ src/title.txt $(UNPROCESSED)
+TODO=$(wildcard src/todo/*.md)
+build/todo.epub: src/title.txt $(TODO) pandoc.yaml
+	pandoc -d pandoc.yaml -o $@ src/title.txt $(TODO)
