@@ -22,16 +22,21 @@ regexes = [
 	re.compile(r"src/title\.txt"),
 	re.compile(r"src/chap(\d+)/((\d+.)*\d+).+\.md"),
 	re.compile(r"src/appendix-0.md"),
-	re.compile(r"src/chap(\d+)/appendix/appendix-((\d+.)*\d+).+.md"),
+	re.compile(r"src/chap(\d+)/appendix/appendix-title.md"),
+	re.compile(r"src/chap(\d+)/appendix/((\d+.)*\d+).+.md"),
 ]
 
 def label(f):
 	for i, regex in enumerate(regexes):
 		match = regex.match(f)
 		if match:
-			if i in [1, 3]:
+			if i in [1, 4]:
 				chapter_no = int(match.group(1))
 				subsec = match.group(2)	
+			elif i == 3:
+				i = 4
+				chapter_no = int(match.group(1))
+				subsec = "0"
 			else: 
 				chapter_no = 0
 				subsec = ""

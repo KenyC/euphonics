@@ -34,6 +34,20 @@ subst   = r'\1\\rbrack{}'
 content = re.sub(pattern, subst, content)
 
 
+# star exponent ^\*
+content = content.replace("^\\*", r"^{\star}")
+
+
+# angled brackets < >
+pattern = r"(\\left)\\?<\s*"
+subst   = r'\1\\langle{}'
+content = re.sub(pattern, subst, content)
+
+pattern = r"(\\right)\\?>\s*"
+subst   = r'\1\\rangle{}'
+content = re.sub(pattern, subst, content)
+
+
 
 
 # primes in maths mode
