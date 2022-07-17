@@ -14,8 +14,6 @@ endif
 all: build/euphonics.epub
 
 build/euphonics.epub: src/title.txt $(MD_FILES) pandoc.yaml config.mk
-	echo \"$(GLADTEX)\"
-	echo $(OPTS)
 	pandoc -d pandoc.yaml $(OPTS) -o $@ $$(python scripts/sort_md.py src/title.txt $(MD_FILES))
 	@echo FINISHED !
 	@echo SIZE OUTPUT
