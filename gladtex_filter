@@ -1,0 +1,10 @@
+#!/bin/python3
+import subprocess
+import sys
+
+subprocess.run(
+	["gladtex", "-P", "-",  "-f", "16"],
+	# stdin  = sys.stdin.fileno(),
+	# stdout = subprocess.STDOUT,
+)
+
